@@ -1,0 +1,133 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+    users:
+      index: Список пользователей
+      new-button: Новый пользователь
+      edit: Редактирование пользователя
+      new: Создание пользователя
+    roles:
+      index: Список возможных ролей пользователей
+      new-button: Новая роль
+      edit: Редактирование роли
+      new: Создание роли
+    worker:
+      index: Список сотрудников
+      new-button: Новый сотрудник
+      edit: Редактирование сотрудника
+      new: Создание сотрудника
+    project:
+      index: Список проектов
+      new-button: Новый проект
+      edit: Редактирование проекта
+      new: Создание проекта
+    departments:
+      index: Список отделов
+      new-button: Новый отдел
+      edit: Редактирование отдела
+      new: Создание отдела
+    worker_projects:
+      index: Список связей "проект:сотрудник"
+      new-button: Новая связь "проект:сотрудник"
+      edit: Редактирование связи "проект:сотрудник"
+      new: Создание связи "проект:сотрудник"
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+    sure: Действительно удалить?
+  buttons:
+     edit: Редактировать
+     destroy: Удалить
+     show: Показать
+     confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+      worker: Действительно удалить сотрудника?
+      project: Действительно удалить проект?
+      department: Действительно удалить отдел?
+     new: 
+      user: Новый пользователь
+      role: Новая роль
+      worker: Новый сотрудник
+      project: Новый проект
+      department: Новый отдел
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    workers:
+      new: Новый сотрудник
+      edit: Измнение данных сотрудника
+      index: Список сотрудников
+    projects:
+      new: Новый проект
+      edit: Измнение данных проекта
+      index: Список проектов
+    departments:
+      new: Новый отдел
+      edit: Изменение данных отдела
+      index: Список отделов
+
+
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+      department: Отдел
+      workers: Сотрудник
+      projects: проект
+      worker_projects: Связь "проект:сотрудник"
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      department:
+        name: Название
+      worker:
+        ln: Фамилия
+        fn: Имя
+        sn: Отчество
+        pas_number: Номер паспорта
+        pas_serial: Серия паспорта
+        inn: ИНН
+        birthday: Дата рождения
+        post: Должность
+        department_id: Отдел
+        department: Отдел
+      project:
+        name: Название
+        start_date: Дата начала
+        finish_date: Дата окончания
+        price: Цена
+        workers: Сотрудники
+      worker_project:
+        worker_id: Сотрудники
+        project_id: Проекты
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму

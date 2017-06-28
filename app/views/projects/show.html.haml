@@ -1,0 +1,23 @@
+=breadcrumb_tag do
+  %li.active
+    = @project.name
+  %li
+    = link_to 'Проекты', project_path
+  %li
+    Проект
+
+%h1= @project.name
+
+%dl
+  %dt= Project.human_attribute_name(:name)
+  %dd= @project.name
+
+  %dt= Project.human_attribute_name(:start_date)
+  %dd= @project.start_date
+
+  %dt= Project.human_attribute_name(:finish_date)
+  %dd= @project.finish_date
+
+  %dt= Project.human_attribute_name(:price)
+  %dd= @project.price
+

@@ -1,0 +1,83 @@
+
+= form_tag search_workers_path(), method: :get do
+  .well
+    %h3 Поиск
+    .row
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:ln)
+        =text_field_tag 'search[ln]', params['search']['ln'],class: 'form-control'
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:fn)
+        =text_field_tag 'search[fn]', params['search']['fn'],class: 'form-control'
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:sn)
+        =text_field_tag 'search[sn]', params['search']['sn'],class: 'form-control'
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:pas_serial)
+        =text_field_tag 'search[pas_serial]', params['search']['pas_serial'],class: 'form-control'
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:pas_number)
+        =text_field_tag 'search[pas_number]', params['search']['pas_number'],class: 'form-control'
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:inn)
+        =text_field_tag 'search[itn]', params['search']['inn'],class: 'form-control'
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:birthday)
+        .input-group.date.datepicker
+          =text_field_tag 'search[birthday]', params['search']['birthday'],class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+
+      .col-md-4
+        .form-group
+        =Worker.human_attribute_name(:post)
+        =text_field_tag 'search[post]', params['search']['post'],class: 'form-control'
+
+
+    %h2 Поиск по атрибутам отделов
+    .row
+      .col-md-4
+        .form-group
+        =Department.human_attribute_name(:name)
+        = select_tag 'search[name_dep]',options_for_select((Department.all.map{|x| [x.name]}.uniq),@old_name),
+          {include_blank: true, class: 'form-control'}
+
+
+  .actions
+    =submit_tag "Найти", class: 'bnt btn-primary'
+.page-header
+  %h1= t('forms.worker_search.Результаты поиска') 
+- if @workers.size > 0
+  .well
+    .row
+      .form-group
+        %dl
+        - @workers.each do |worker|
+          .col-xs-8.col-sm-8.col-lg-6
+            .well
+              %h5= "Сотрудник №" + worker.id.to_s
+              %dt= Worker.human_attribute_name(:ln)
+              %dd= worker.ln
+              %dt= Worker.human_attribute_name(:fn)
+              %dd= worker.fn
+              %dt= Worker.human_attribute_name(:sn)
+              %dd= worker.sn
+              %dt= Worker.human_attribute_name(:pas_number)
+              %dd= worker.pas_number
+              %dt= Worker.human_attribute_name(:pas_serial)
+              %dd= worker.pas_serial
+              %dt= Worker.human_attribute_name(:inn)
+              %dd= worker.inn
+              %dt= Worker.human_attribute_name(:birthday)
+              %dd= worker.birthday
+              %dt= Worker.human_attribute_name(:post)
+              %dd= worker.post
+              %dt= Worker.human_attribute_name(:department)
+              %dd= worker.department.name

@@ -1,0 +1,14 @@
+=breadcrumb_tag do
+  %li.active
+    = @department.name
+  %li
+    = link_to 'Отдел', department_path
+  %li
+
+%h1= @department.name
+
+%dl
+  %dt= Department.human_attribute_name(:name)
+  %dd= @department.name
+
+

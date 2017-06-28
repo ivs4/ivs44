@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ln: MyString
+  fn: MyString
+  sn: MyString
+  pas_number: MyString
+  pas_serial: MyString
+  inn: MyString
+  birthday: 2017-05-19
+  post: MyString
+  department_id: 
+
+two:
+  ln: MyString
+  fn: MyString
+  sn: MyString
+  pas_number: MyString
+  pas_serial: MyString
+  inn: MyString
+  birthday: 2017-05-19
+  post: MyString
+  department_id: 

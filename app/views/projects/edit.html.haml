@@ -1,0 +1,14 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.projects.edit')
+  %li
+    = link_to(@project.name, @projects)
+  %li
+    = link_to 'Проекты', projects_path
+  %li
+    Изменение данных
+
+.page-header
+  %h1= t('headers.projects.edit')
+  
+= render 'form'

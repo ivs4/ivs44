@@ -1,0 +1,15 @@
+
+=breadcrumb_tag do
+  %li.active
+    = t('headers.workers.edit')
+  %li
+    = link_to(@worker.ln, @worker)
+  %li
+    = link_to 'Сотрудник', workers_path
+  %li
+    Изменение данных
+
+.page-header
+  %h1= t('headers.workers.edit')
+  
+= render 'form'

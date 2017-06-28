@@ -1,0 +1,62 @@
+=breadcrumb_tag do
+  %li.active
+    Сотрудники
+  %li
+    Данные о сотруднике
+
+.page-header
+  %h1= t('headers.workers.index')
+
+= link_to new_worker_path, class: 'btn btn-success' do
+  = fa_icon :plus
+  = t('buttons.new.worker')
+
+.row
+  .col-xs-12
+    %table.table.table-hover
+      %tbody
+        - @workers.each do |worker|
+          %tr.active
+            %th= Worker.human_attribute_name(:ln)
+            %td= worker.ln
+          %tr
+            %th= Worker.human_attribute_name(:fn)
+            %td= worker.fn
+          %tr
+            %th= Worker.human_attribute_name(:sn)
+            %td= worker.sn
+          %tr
+            %th= Worker.human_attribute_name(:pas_number)
+            %td= worker.pas_number
+          %tr
+            %th= Worker.human_attribute_name(:pas_serial)
+            %td= worker.pas_serial
+          %tr
+            %th= Worker.human_attribute_name(:inn)
+            %td= worker.inn
+          %tr
+            %th= Worker.human_attribute_name(:birthday)
+            %td= worker.birthday
+          %tr
+            %th= Worker.human_attribute_name(:post)
+            %td= worker.post
+          %tr
+            %th= Worker.human_attribute_name(:department)
+            %td= worker.department.name
+          %tr
+
+
+
+            %td
+              = link_to worker, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')
+              = link_to edit_worker_path(worker), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to worker, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.worker') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
+            %td

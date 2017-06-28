@@ -1,0 +1,48 @@
+= form_for @project do |f|
+  = error_messages_for @project
+  .row
+    .col-md-6
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+        = f.error_messages_for(:name)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :start_date
+        .input-group.date.datepicker
+          = f.text_field :start_date, value: lnil(f.object.start_date), class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+        = f.error_messages_for(:start_date)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :finish_date
+        .input-group.date.datepicker
+          = f.text_field :finish_date, value: lnil(f.object.finish_date), class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+        = f.error_messages_for(:finish_date)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :price
+        .input-group
+          = f.text_field :price, class: 'form-control'
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-ruble
+        = f.error_messages_for(:price)
+
+
+
+      .col_md-12
+        = link_to_add_worker(f, f.object)
+    -i = 0
+    = f.fields_for(:worker_projects) do |fr|
+      = fr.hidden_field(:id)
+      = render("projects/one_worker_form", fr: fr, i: i + 1)
+
+  .actions.margin-small-top
+    = f.submit nil, class: 'btn btn-primary'
+

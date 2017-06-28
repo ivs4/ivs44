@@ -1,0 +1,37 @@
+=breadcrumb_tag do
+  %li.active
+    = @worker.ln
+  %li
+    = link_to 'Сотрудники', worker_path
+  %li
+    Сотрудник
+
+%h1= @worker.ln
+
+%dl
+  %dt= Worker.human_attribute_name(:ln)
+  %dd= @worker.ln
+
+  %dt= Worker.human_attribute_name(:fn)
+  %dd= @worker.fn
+
+  %dt= Worker.human_attribute_name(:sn)
+  %dd= @worker.sn
+
+  %dt= Worker.human_attribute_name(:pas_number)
+  %dd= @worker.pas_number
+
+  %dt= Worker.human_attribute_name(:pas_serial)
+  %dd= @worker.pas_serial
+
+  %dt= Worker.human_attribute_name(:inn)
+  %dd= @worker.inn
+
+  %dt= Worker.human_attribute_name(:birthday)
+  %dd= @worker.birthday
+
+  %dt= Worker.human_attribute_name(:post)
+  %dd= @worker.post
+
+  %dt= Worker.human_attribute_name(:department)
+  %dd= @worker.department.name

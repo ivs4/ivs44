@@ -1,0 +1,10 @@
+
+
+.row
+  .col-md-12
+    .form-group
+      = f.label :department_id
+      = f.select :department_id,  Department.all.map{|x| [x.name, x.id]}, {}, class: 'form-control'
+      = f.error_messages_for(:department_id)
+
+

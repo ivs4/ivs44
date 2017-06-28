@@ -1,0 +1,22 @@
+
+-# nested_start
+.col-md-6
+  %div{class: 'panel panel-'+ (i.kind_of?(Integer) ? 'success' : 'info')}
+    .panel-heading
+      Сотрудник
+      = i
+      %span.toright
+        = link_to_remove_worker(fr)
+      .clearfix
+    .panel-body
+      .row
+        .col-md-6
+          .form-group
+            = fr.label :worker_id
+            = fr.select(:worker_id,
+            options_for_select(worker_options, fr.object.worker_id),
+            {}, class: 'form-control')
+            -# role_options ищите в roles_helper
+            = fr.error_messages_for(:worker_id)
+        
+-# nested_finish
